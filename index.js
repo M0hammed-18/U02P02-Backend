@@ -1,14 +1,12 @@
 const express=require("express")
 const dotenv = require("dotenv");
+require("./DB/db")
 
-dotenv.config();
+
 
 const app = express();
 const PORT = process.env.PORT
-
-
-
-
+dotenv.config();
 app.use(express.json());
 
 app.listen(PORT, () => {
