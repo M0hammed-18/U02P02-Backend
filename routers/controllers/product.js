@@ -29,5 +29,29 @@ const getAllproduct = (req, res) => {
       res.send(err);
     });
 };
-
-module.exports = { creatProduct, getAllproduct };
+const update = (req, res) => {
+  const { id } = req.params;
+  const { name, img, price, kind } = req.body;
+  productModel
+    .findOneAndUpdate({ _id: id }, { name, img, price, kind }, { new: true })
+    .exec()
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+const remove = (req, res) => {
+  const { id } = req.params;
+ 
+  productModel.findOneAndRemove({ _id: id }, { new: true })
+    .exec()
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+module.exports = { creatProduct, getAllproduct, update, remove };
