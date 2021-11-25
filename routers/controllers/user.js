@@ -2,10 +2,10 @@ const userModel = require("../../DB/models/userSchema");
 const mongoose = require("mongoose");
 
 const creatUser = (req, res) => {
-  const { username, email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const newUser = new userModel({
-    username,
+    name,
     email,
     password,
   });
@@ -32,12 +32,12 @@ const getAlluser = (req, res) => {
 
 const update = (req, res) => {
   const { id } = req.params;
-  const { username, password, email } = req.body;
+  const { name, password, email } = req.body;
   userModel
     // first parameter is the condition where we will search for the id of the user in our database
     // second parameter new value that we want to update
     // third parameter is options, we used the option new so that we can return the modified user
-    .findOneAndUpdate({ _id: id }, { username, password, email }, { new: true })
+    .findOneAndUpdate({ _id: id }, { name, password, email }, { new: true })
     .exec()
     .then((result) => {
       res.json(result);
