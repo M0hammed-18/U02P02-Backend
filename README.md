@@ -18,8 +18,8 @@ Express
 > npm i express
 
 # DB :
-> const mongoose = require("mongoose");
-
+```Java Secript
+ const mongoose = require("mongoose");
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
