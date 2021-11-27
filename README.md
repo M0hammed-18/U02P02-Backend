@@ -5,14 +5,35 @@
 Weapon store.
 
 # Package I used:
-axios
-cors
-dotenv
-express
-mongoose
-morgan
+1.axios
+2.cors
+3.dotenv
+4.express
+5.mongoose
+6.morgan
 
 # Build Server:
 Express
 
 > npm i express
+
+# DB :
+> const mongoose = require("mongoose");
+
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+const dotenv = require("dotenv");
+dotenv.config();
+
+const DB = process.env.DB;
+mongoose.connect(DB, options).then(
+  () => {
+    console.log("DB Ready To Use");
+  },
+  (err) => {
+    console.log(err);
+  }
+);
